@@ -1,0 +1,634 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lux Vily Barbearia - Minaçu/GO</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            scroll-behavior: smooth;
+        }
+        
+        .hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://images.unsplash.com/photo-1605497788044-5a32c7078486?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80');
+            background-size: cover;
+            background-position: center;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+        
+        .barber-img {
+            transition: all 0.3s ease;
+        }
+        
+        .barber-img:hover {
+            transform: scale(1.05);
+        }
+        
+        .map-container {
+            height: 400px;
+            width: 100%;
+        }
+    </style>
+</head>
+<body class="bg-gray-100">
+    <!-- Header/Navigation -->
+    <header class="bg-black text-white sticky top-0 z-50 shadow-lg">
+        <div class="container mx-auto px-6 py-4">
+            <div class="flex justify-between items-center">
+                <div class="flex items-center">
+                    <i class="fas fa-cut text-amber-500 text-2xl mr-2"></i>
+                    <h1 class="text-2xl font-bold">Lux Vily <span class="text-amber-500">Barbearia</span></h1>
+                </div>
+                <nav class="hidden md:flex space-x-8">
+                    <a href="#home" class="hover:text-amber-500 transition">Início</a>
+                    <a href="#services" class="hover:text-amber-500 transition">Serviços</a>
+                    <a href="#barbers" class="hover:text-amber-500 transition">Barbeiros</a>
+                    <a href="#location" class="hover:text-amber-500 transition">Localização</a>
+                    <a href="#contact" class="hover:text-amber-500 transition">Contato</a>
+                </nav>
+                <button class="md:hidden text-2xl" id="menuBtn">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+            <!-- Mobile Menu -->
+            <div class="md:hidden hidden mt-4" id="mobileMenu">
+                <div class="flex flex-col space-y-3">
+                    <a href="#home" class="hover:text-amber-500 transition">Início</a>
+                    <a href="#services" class="hover:text-amber-500 transition">Serviços</a>
+                    <a href="#barbers" class="hover:text-amber-500 transition">Barbeiros</a>
+                    <a href="#location" class="hover:text-amber-500 transition">Localização</a>
+                    <a href="#contact" class="hover:text-amber-500 transition">Contato</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero min-h-screen flex items-center justify-center text-white">
+        <div class="container mx-auto px-6 text-center">
+            <h1 class="text-4xl md:text-6xl font-bold mb-6">ESTILO E <span class="text-amber-500">SOFISTICAÇÃO</span></h1>
+            <p class="text-xl md:text-2xl mb-8 max-w-2xl mx-auto">Na Lux Vily Barbearia, transformamos cortes de cabelo e barbas em obras de arte masculina.</p>
+            <div class="flex flex-col md:flex-row justify-center gap-4">
+                <a href="#contact" class="bg-amber-500 hover:bg-amber-600 text-black font-bold py-3 px-6 rounded-full transition">Agendar Horário</a>
+                <a href="#services" class="bg-transparent hover:bg-white hover:text-black border-2 border-white font-bold py-3 px-6 rounded-full transition">Nossos Serviços</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="py-20 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col md:flex-row items-center">
+                <div class="md:w-1/2 mb-10 md:mb-0">
+                    <img src="https://images.unsplash.com/photo-1585747860715-2ba37e788b70?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1474&q=80" 
+                         alt="Barbearia Lux Vily" 
+                         class="rounded-lg shadow-xl w-full max-w-lg mx-auto">
+                </div>
+                <div class="md:w-1/2 md:pl-12">
+                    <h2 class="text-3xl font-bold mb-6">Sobre a <span class="text-amber-500">Lux Vily</span></h2>
+                    <p class="text-gray-600 mb-4">
+                        Fundada em Minaçu-GO, a Lux Vily Barbearia se destaca pela excelência em serviços de beleza masculina. 
+                        Nossa equipe de profissionais altamente qualificados está pronta para oferecer a melhor experiência em cuidados pessoais.
+                    </p>
+                    <p class="text-gray-600 mb-6">
+                        Ambiente climatizado, equipamentos de última geração e produtos de alta qualidade fazem da Lux Vily o lugar perfeito 
+                        para quem busca sofisticação e bem-estar.
+                    </p>
+                    <div class="flex flex-wrap gap-4">
+                        <div class="flex items-center">
+                            <i class="fas fa-check-circle text-amber-500 mr-2"></i>
+                            <span>Atendimento personalizado</span>
+                        </div>
+                        <div class="flex items-center">
+                            <i class="fas fa-check-circle text-amber-500 mr-2"></i>
+                            <span>Profissionais qualificados</span>
+                        </div>
+                        <div class="flex items-center">
+                            <i class="fas fa-check-circle text-amber-500 mr-2"></i>
+                            <span>Ambiente premium</span>
+                        </div>
+                        <div class="flex items-center">
+                            <i class="fas fa-check-circle text-amber-500 mr-2"></i>
+                            <span>Produtos de qualidade</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="py-20 bg-gray-100">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-bold mb-4">Nossos <span class="text-amber-500">Serviços</span></h2>
+                <p class="text-gray-600 max-w-2xl mx-auto">
+                    Oferecemos uma variedade de serviços para cuidar da sua aparência com excelência e atenção aos detalhes.
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Service 1 -->
+                <div class="service-card bg-white p-8 rounded-lg shadow-md transition duration-300">
+                    <div class="text-amber-500 text-4xl mb-4">
+                        <i class="fas fa-cut"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Corte de Cabelo</h3>
+                    <p class="text-gray-600 mb-4">
+                        Corte profissional com técnicas modernas e acabamento impecável, utilizando os melhores produtos do mercado.
+                    </p>
+                    <div class="text-amber-500 font-bold">A partir de R$ 35,00</div>
+                </div>
+                
+                <!-- Service 2 -->
+                <div class="service-card bg-white p-8 rounded-lg shadow-md transition duration-300">
+                    <div class="text-amber-500 text-4xl mb-4">
+                        <i class="fas fa-user-tie"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Barba</h3>
+                    <p class="text-gray-600 mb-4">
+                        Modelagem e tratamento completo para barba, incluindo toalha quente, óleos essenciais e finalização premium.
+                    </p>
+                    <div class="text-amber-500 font-bold">A partir de R$ 25,00</div>
+                </div>
+                
+                <!-- Service 3 -->
+                <div class="service-card bg-white p-8 rounded-lg shadow-md transition duration-300">
+                    <div class="text-amber-500 text-4xl mb-4">
+                        <i class="fas fa-cut"></i>
+                        <i class="fas fa-user-tie ml-2"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Corte + Barba</h3>
+                    <p class="text-gray-600 mb-4">
+                        Pacote completo com corte de cabelo e tratamento de barba. Economize e saia com um visual renovado.
+                    </p>
+                    <div class="text-amber-500 font-bold">A partir de R$ 60,00</div>
+                </div>
+                
+                <!-- Service 4 -->
+                <div class="service-card bg-white p-8 rounded-lg shadow-md transition duration-300">
+                    <div class="text-amber-500 text-4xl mb-4">
+                        <i class="fas fa-spa"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Relaxamento</h3>
+                    <p class="text-gray-600 mb-4">
+                        Hidratação, reconstrução e tratamentos específicos para cuidar da saúde dos seus cabelos.
+                    </p>
+                    <div class="text-amber-500 font-bold">A partir de R$ 35,00</div>
+                </div>
+                
+                <!-- Service 5 -->
+                <div class="service-card bg-white p-8 rounded-lg shadow-md transition duration-300">
+                    <div class="text-amber-500 text-4xl mb-4">
+                        <i class="fas fa-paint-brush"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Pigmentação</h3>
+                    <p class="text-gray-600 mb-4">
+                        Técnicas profissionais de coloração para cobrir fios brancos ou mudar completamente seu visual.
+                    </p>
+                    <div class="text-amber-500 font-bold">A partir de R$ 20,00</div>
+                </div>
+                
+                <!-- Service 6 -->
+                <div class="service-card bg-white p-8 rounded-lg shadow-md transition duration-300">
+                    <div class="text-amber-500 text-4xl mb-4">
+                        <i class="fas fa-child"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Corte Infantil</h3>
+                    <p class="text-gray-600 mb-4">
+                        Ambiente especial para os pequenos, com profissionais experientes em cortes infantis.
+                    </p>
+                    <div class="text-amber-500 font-bold">A partir de R$ 35,00</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Barbers Section -->
+    <section id="barbers" class="py-20 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-bold mb-4">Nossos <span class="text-amber-500">Barbeiros</span></h2>
+                <p class="text-gray-600 max-w-2xl mx-auto">
+                    Conheça nossa equipe de profissionais especializados, prontos para oferecer o melhor atendimento.
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Barber 1 -->
+                <div class="text-center">
+                    <div class="barber-img overflow-hidden rounded-full w-48 h-48 mx-auto mb-6 shadow-lg">
+                        <img src="img/Barbeiro_Paulim.jpg"
+                             alt="Barbeiro" 
+                             class="w-full h-full object-cover">
+                    </div>
+                    <h3 class="text-xl font-bold">Paulim</h3>
+                    <p class="text-amber-500 mb-2">Barbeiro</p>
+                    <p class="text-gray-600">
+                        Especialista em cortes clássicos e modernos, Paulim domina todas as técnicas de barbeiro.
+                    </p>
+                </div>
+                
+                <!-- Barber 2 -->
+                <div class="text-center">
+                    <div class="barber-img overflow-hidden rounded-full w-48 h-48 mx-auto mb-6 shadow-lg">
+                        <img src="img/Barbeiro_Evandro.jpg" 
+                             alt="Barbeiro" 
+                             class="w-full h-full object-cover">
+                    </div>
+                    <h3 class="text-xl font-bold">Evandro</h3>
+                    <p class="text-amber-500 mb-2">Barbeiro</p>
+                    <p class="text-gray-600">
+                        Com mais de 3 anos de experiência, Evandro traz técnicas modernas e um olhar apurado para detalhes.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Location Section -->
+    <section id="location" class="py-20 bg-gray-100">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-bold mb-4">Nossa <span class="text-amber-500">Localização</span></h2>
+                <p class="text-gray-600 max-w-2xl mx-auto">
+                    Estamos localizados em Minaçu-GO, na Rua 13 entre as Avenidas Maranhão e Goiás. Venha nos visitar!
+                </p>
+            </div>
+            
+            <div class="flex flex-col lg:flex-row gap-8">
+                <div class="lg:w-1/2">
+                    <div class="map-container rounded-lg shadow-xl overflow-hidden">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1ddummy!2d-48.220726!3d-13.530394!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTPCsDMxJzQ5LjQiTiA0OMKwMTMnMTQuNiJX!5e0!3m2!1sen!2sbr!4v1234567890123!5m2!1sen!2sbr" 
+                                width="100%" 
+                                height="100%" 
+                                style="border:0;" 
+                                allowfullscreen="" 
+                                loading="lazy" 
+                                referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    </div>
+                </div>
+                
+                <div class="lg:w-1/2 bg-white p-8 rounded-lg shadow-md">
+                    <h3 class="text-2xl font-bold mb-6">Horário de Funcionamento</h3>
+                    
+                    <div class="space-y-4 mb-8">
+                        <div class="flex justify-between border-b pb-2">
+                            <span>Segunda a Sexta</span>
+                            <span class="font-bold">09:00 - 23:00</span>
+                        </div>
+                        <div class="flex justify-between border-b pb-2">
+                            <span>Sábado</span>
+                            <span class="font-bold">09:00 - 22:30</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span>Domingo</span>
+                            <span class="font-bold">Fechado</span>
+                        </div>
+                    </div>
+                    
+                    <div>
+                        <h4 class="text-xl font-bold mb-4">Informações</h4>
+                        <div class="space-y-3">
+                            <div class="flex items-start">
+                                <i class="fas fa-map-marker-alt text-amber-500 mt-1 mr-3"></i>
+                                <span>Rua 13, entre Av. Maranhão e Av. Goiás - Minaçu/GO</span>
+                            </div>
+                            <div class="flex items-center">
+                                <i class="fas fa-phone-alt text-amber-500 mr-3"></i>
+                                <span>(62) 98468-8262</span>
+                            </div>
+                            <div class="flex items-center">
+                                <i class="fas fa-envelope text-amber-500 mr-3"></i>
+                                <span>contato@luxvilybarbearia.com</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-bold mb-4">Entre em <span class="text-amber-500">Contato</span></h2>
+                <p class="text-gray-600 max-w-2xl mx-auto">
+                    Agende seu horário ou tire suas dúvidas. Estamos à disposição para melhor atendê-lo.
+                </p>
+            </div>
+            
+            <div class="max-w-3xl mx-auto bg-gray-100 rounded-lg shadow-md p-8">
+                <form id="contactForm" class="space-y-6">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div>
+                            <label for="name" class="block text-gray-700 mb-2">Nome Completo</label>
+                            <input type="text" id="name" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-amber-500">
+                        </div>
+                        <div>
+                            <label for="phone" class="block text-gray-700 mb-2">Telefone</label>
+                            <input type="tel" id="phone" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-amber-500">
+                        </div>
+                    </div>
+                    <div>
+                        <label for="email" class="block text-gray-700 mb-2">E-mail</label>
+                        <input type="email" id="email" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-amber-500">
+                    </div>
+                    <div>
+                        <label for="service" class="block text-gray-700 mb-2">Serviço Desejado</label>
+                        <select id="service" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-amber-500">
+                            <option value="">Selecione um serviço</option>
+                            <option value="Corte de Cabelo">Corte de Cabelo</option>
+                            <option value="Barba">Barba</option>
+                            <option value="Corte + Barba">Corte + Barba</option>
+                            <option value="Tratamento Capilar">Tratamento Capilar</option>
+                            <option value="Coloração">Coloração</option>
+                            <option value="Corte Infantil">Corte Infantil</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label for="date" class="block text-gray-700 mb-2">Data Desejada</label>
+                        <input type="date" id="date" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-amber-500">
+                    </div>
+                    <div>
+                        <label for="message" class="block text-gray-700 mb-2">Mensagem (Opcional)</label>
+                        <textarea id="message" rows="4" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-amber-500"></textarea>
+                    </div>
+                    <button type="submit" class="w-full bg-amber-500 hover:bg-amber-600 text-black font-bold py-3 px-6 rounded-full transition">
+                        Enviar Agendamento
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="py-20 bg-gray-100">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-bold mb-4">O que dizem <span class="text-amber-500">nossos clientes</span></h2>
+                <p class="text-gray-600 max-w-2xl mx-auto">
+                    A satisfação dos nossos clientes é nossa maior recompensa.
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Testimonial 1 -->
+                <div class="bg-white p-8 rounded-lg shadow-md">
+                    <div class="flex items-center mb-4">
+                        <div class="text-amber-500 text-2xl mr-2">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 mb-6">
+                        "Melhor barbearia de Minaçu! O Vily é um excelente profissional, sempre atencioso e com um ótimo trabalho. Ambiente limpo e organizado."
+                    </p>
+                    <div class="flex items-center">
+                        <img src="https://randomuser.me/api/portraits/men/32.jpg" 
+                             alt="Cliente" 
+                             class="w-12 h-12 rounded-full mr-4">
+                        <div>
+                            <h4 class="font-bold">Roberto Silva</h4>
+                            <p class="text-gray-500 text-sm">Cliente há 3 anos</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Testimonial 2 -->
+                <div class="bg-white p-8 rounded-lg shadow-md">
+                    <div class="flex items-center mb-4">
+                        <div class="text-amber-500 text-2xl mr-2">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 mb-6">
+                        "Sempre fui muito bem atendido na Lux Vily. Os barbeiros são muito profissionais e o ambiente é muito agradável. Recomendo!"
+                    </p>
+                    <div class="flex items-center">
+                        <img src="https://randomuser.me/api/portraits/men/44.jpg" 
+                             alt="Cliente" 
+                             class="w-12 h-12 rounded-full mr-4">
+                        <div>
+                            <h4 class="font-bold">Marcos Oliveira</h4>
+                            <p class="text-gray-500 text-sm">Cliente há 2 anos</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Testimonial 3 -->
+                <div class="bg-white p-8 rounded-lg shadow-md">
+                    <div class="flex items-center mb-4">
+                        <div class="text-amber-500 text-2xl mr-2">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star-half-alt"></i>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 mb-6">
+                        "Levo meu filho desde pequeno e ele adora! O atendimento é excelente e o espaço infantil deixa as crianças à vontade. Nota 10!"
+                    </p>
+                    <div class="flex items-center">
+                        <img src="https://randomuser.me/api/portraits/women/63.jpg" 
+                             alt="Cliente" 
+                             class="w-12 h-12 rounded-full mr-4">
+                        <div>
+                            <h4 class="font-bold">Ana Paula</h4>
+                            <p class="text-gray-500 text-sm">Cliente há 1 ano</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Instagram Section -->
+    <section class="py-16 bg-black text-white">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold mb-4">Siga-nos no <span class="text-amber-500">Instagram</span></h2>
+                <p class="text-gray-400 max-w-2xl mx-auto">
+                    Acompanhe nosso trabalho e fique por dentro das novidades.
+                </p>
+                <a href="https://instagram.com/barbearia_luxvily/" target="_blank" class="inline-block mt-4 text-amber-500 hover:text-amber-400">
+                    @barbearia_luxvily <i class="fab fa-instagram ml-1"></i>
+                </a>
+            </div>
+            
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-2">
+                <div class="overflow-hidden rounded-lg hover:opacity-90 transition">
+                    <img src="https://images.unsplash.com/photo-1521590832167-7bcbfaa6381f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" 
+                         alt="Instagram post" 
+                         class="w-full h-full object-cover">
+                </div>
+                <div class="overflow-hidden rounded-lg hover:opacity-90 transition">
+                    <img src="https://images.unsplash.com/photo-1562788865-9a3b30d5cb0f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" 
+                         alt="Instagram post" 
+                         class="w-full h-full object-cover">
+                </div>
+                <div class="overflow-hidden rounded-lg hover:opacity-90 transition">
+                    <img src="https://images.unsplash.com/photo-1605497788044-5a32c7078486?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" 
+                         alt="Instagram post" 
+                         class="w-full h-full object-cover">
+                </div>
+                <div class="overflow-hidden rounded-lg hover:opacity-90 transition">
+                    <img src="https://images.unsplash.com/photo-1595476108010-b4d1f102b1b1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=688&q=80" 
+                         alt="Instagram post" 
+                         class="w-full h-full object-cover">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12">
+        <div class="container mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <h3 class="text-xl font-bold mb-4 flex items-center">
+                        <i class="fas fa-cut text-amber-500 mr-2"></i>
+                        Lux Vily Barbearia
+                    </h3>
+                    <p class="text-gray-400">
+                        Excelência em cuidados masculinos. Transformando cortes e barbas em experiências premium.
+                    </p>
+                </div>
+                
+                <div>
+                    <h3 class="text-xl font-bold mb-4">Links Rápidos</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#home" class="text-gray-400 hover:text-amber-500 transition">Início</a></li>
+                        <li><a href="#services" class="text-gray-400 hover:text-amber-500 transition">Serviços</a></li>
+                        <li><a href="#barbers" class="text-gray-400 hover:text-amber-500 transition">Barbeiros</a></li>
+                        <li><a href="#location" class="text-gray-400 hover:text-amber-500 transition">Localização</a></li>
+                        <li><a href="#contact" class="text-gray-400 hover:text-amber-500 transition">Contato</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="text-xl font-bold mb-4">Horário</h3>
+                    <ul class="space-y-2 text-gray-400">
+                        <li>Segunda a Sexta: 09:00 - 23:00</li>
+                        <li>Sábado: 08:00 - 22:30</li>
+                        <li>Domingo: Fechado</li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="text-xl font-bold mb-4">Contato</h3>
+                    <ul class="space-y-3 text-gray-400">
+                        <li class="flex items-center">
+                            <i class="fas fa-map-marker-alt text-amber-500 mr-3"></i>
+                            Rua 13, entre Av. Maranhão e Av. Goiás - Minaçu/GO
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-phone-alt text-amber-500 mr-3"></i>
+                            (62) 98468-8262
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-envelope text-amber-500 mr-3"></i>
+                            contato@luxvilybarbearia.com
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-800 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center">
+                <p class="text-gray-400 mb-4 md:mb-0">
+                    &copy; 2023 Lux Vily Barbearia. Todos os direitos reservados.
+                </p>
+                <div class="flex space-x-4">
+                    <a href="#" class="text-gray-400 hover:text-amber-500 transition">
+                        <i class="fab fa-facebook-f"></i>
+                    </a>
+                    <a href="#" class="text-gray-400 hover:text-amber-500 transition">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a href="#" class="text-gray-400 hover:text-amber-500 transition">
+                        <i class="fab fa-whatsapp"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- WhatsApp Float Button -->
+    <a href="https://wa.me/5562999999999" target="_blank" class="fixed bottom-6 right-6 bg-green-500 hover:bg-green-600 text-white w-14 h-14 rounded-full flex items-center justify-center text-2xl shadow-lg transition">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <script>
+        // Mobile menu toggle
+        const menuBtn = document.getElementById('menuBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
+        
+        menuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+        
+        // Form submission
+        const contactForm = document.getElementById('contactForm');
+        
+        contactForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            
+            // Get form values
+            const name = document.getElementById('name').value;
+            const phone = document.getElementById('phone').value;
+            const email = document.getElementById('email').value;
+            const service = document.getElementById('service').value;
+            const date = document.getElementById('date').value;
+            const message = document.getElementById('message').value;
+            
+            // Here you would typically send this data to a server
+            // For this example, we'll just show an alert
+            alert(`Obrigado, ${name}! Seu agendamento para ${service} no dia ${date} foi recebido. Entraremos em contato em breve para confirmar.`);
+            
+            // Reset form
+            contactForm.reset();
+        });
+        
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                    
+                    // Close mobile menu if open
+                    if (!mobileMenu.classList.contains('hidden')) {
+                        mobileMenu.classList.add('hidden');
+                    }
+                }
+            });
+        });
+    </script>
+</body>
+</html>
